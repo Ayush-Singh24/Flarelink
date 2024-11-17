@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.scss";
-import { Options } from "./utils/constants";
+import { Options, Priority, Status } from "./utils/constants";
 import Header from "./components/Header/Header";
 import SideNav from "./components/SideNav/SideNav";
 import useWindowsDimensions from "./hooks/useWindowDimensions";
 import TasksContainer from "./components/TaskContainer/TasksContainer";
+import { nanoid } from "nanoid";
 import { Task } from "./types/types";
 
 function App() {
@@ -29,7 +30,30 @@ function App() {
     }
   };
 
-  const addTask = () => {};
+  const addTask = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!tasks) {
+      setTasks([
+        {
+          id: nanoid(),
+          text: inputValue,
+          status: Status.Active,
+          priority: Priority.NoPriority,
+        },
+      ]);
+      setInputValue("");
+      return;
+    }
+    const arr = [...tasks];
+    arr.push({
+      id: nanoid(),
+      text: inputValue,
+      status: Status.Active,
+      priority: Priority.NoPriority,
+    });
+    setTasks(arr);
+    setInputValue("");
+  };
   const handleDelete = () => {};
   const handleStatus = () => {};
 

@@ -1,7 +1,7 @@
 import "./header.scss";
 
 interface HeaderProps {
-  addTask: () => void;
+  addTask: (e: React.FormEvent) => void;
   inputValue: string;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
   showNav: boolean;
