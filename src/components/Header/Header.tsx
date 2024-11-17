@@ -6,7 +6,7 @@ interface HeaderProps {
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
   showNav: boolean;
   setShowNav: React.Dispatch<React.SetStateAction<boolean>>;
-  handleNav: () => void;
+  handleNav: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function Header({
