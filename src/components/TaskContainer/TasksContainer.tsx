@@ -3,8 +3,8 @@ import { shouldShowTask } from "../../utils/helpers";
 import TaskItem from "./TaskItem";
 
 export interface TasksContainerProps {
-  tasks: Task[];
-  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  tasks: Task[] | null;
+  setTasks: React.Dispatch<React.SetStateAction<Task[] | null>>;
   handleDelete: (id: string) => void;
   option: number;
   handleStatus: (
@@ -22,18 +22,19 @@ export default function TasksContainer({
 }: TasksContainerProps) {
   return (
     <main className="task-container">
-      {tasks
-        ?.filter((task) => shouldShowTask(task, option))
-        .map((task) => (
-          <TaskItem
-            key={task.id}
-            task={task}
-            tasks={tasks}
-            setTasks={setTasks}
-            handleDelete={handleDelete}
-            handleStatus={handleStatus}
-          />
-        ))}
+      {tasks &&
+        tasks
+          ?.filter((task) => shouldShowTask(task, option))
+          .map((task) => (
+            <TaskItem
+              key={task.id}
+              task={task}
+              tasks={tasks}
+              setTasks={setTasks}
+              handleDelete={handleDelete}
+              handleStatus={handleStatus}
+            />
+          ))}
     </main>
   );
 }

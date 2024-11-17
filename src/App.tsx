@@ -9,7 +9,7 @@ import { nanoid } from "nanoid";
 import { Task } from "./types/types";
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[] | null>(null);
   const [inputValue, setInputValue] = useState("");
   const [option, setOption] = useState(Options.All);
   const [showNav, setShowNav] = useState(false);
@@ -51,6 +51,7 @@ function App() {
 
   // Function to delete task
   const handleDelete = (id: string) => {
+    if (!tasks) return;
     const arr = tasks.filter((task) => {
       return id !== task.id;
     });
@@ -62,6 +63,7 @@ function App() {
     changeEvent: React.ChangeEvent<HTMLInputElement>,
     id: string,
   ) => {
+    if (!tasks) return;
     const arr = [...tasks];
     const task = arr.find((element) => {
       return id === element.id;
@@ -90,7 +92,7 @@ function App() {
 
   // Saving to local storage
   useEffect(() => {
-    if (tasks.length > 0) {
+    if (tasks) {
       localStorage.setItem("todo_tasks", JSON.stringify(tasks));
     }
   }, [tasks]);
@@ -98,7 +100,7 @@ function App() {
   // Loading form local storage
   useEffect(() => {
     const storedTasks = localStorage.getItem("todo_tasks");
-    if (storedTasks && tasks.length <= 0) {
+    if (storedTasks && !tasks) {
       setTasks(JSON.parse(storedTasks));
     }
   });

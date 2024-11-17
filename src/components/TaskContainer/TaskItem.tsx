@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { Task } from "../../types/types";
 import PrioritySelector from "./PrioritySelector";
 import StatusCheckbox from "./StatusCheckbox";
@@ -18,7 +19,11 @@ export default function TaskItem({
     <div className="task">
       <span className="task__text">{task.text}</span>
 
-      <PrioritySelector task={task} tasks={tasks} setTasks={setTasks} />
+      <PrioritySelector
+        task={task}
+        tasks={tasks as Task[]}
+        setTasks={setTasks as Dispatch<SetStateAction<Task[]>>}
+      />
 
       <StatusCheckbox task={task} handleStatus={handleStatus} />
 

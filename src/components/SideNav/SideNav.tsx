@@ -1,4 +1,4 @@
-import { navItems, Options } from "../../utils/constants";
+import { navItems } from "../../utils/constants";
 import "./sidenav.scss";
 
 interface SideNavProps {
