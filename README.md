@@ -1,6 +1,6 @@
 ## Deployment
 
-Test it out live:  
+Test it out live: https://whatsinmytodo.vercel.app/
 
 ## Installation
 
