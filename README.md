@@ -18,20 +18,20 @@ ToDo is a user-friendly task management tool designed to help individuals stream
 
 ### Task Addition
 Easily add new tasks with descriptions and due dates.
-!["add img 1"]("./screenshots/add-1.jpeg")
-!["add img 2"]("./screenshots/add-2.jpeg")
+!["add img 1"](./screenshots/add-1.jpeg)
+!["add img 2"](./screenshots/add-2.jpeg)
 ### Priority Setting
 Assign priority levels (High, Medium, Low) to tasks.
-!["set priority"]("./screenshots/priority.png")
+!["set priority"](./screenshots/priority.png)
 
 ### Completion Tracking
 Mark tasks as Completed or Not Completed.
-!["mark completed"]("./screenshots/complete.png")
+!["mark completed"](./screenshots/complete.png)
 
 ### Delete Feature
 Remove tasks permanently.
-!["delete 1"]("./screenshots/delete-1.png")
-!["delete 2"]("./screenshots/delete-2.png")
+!["delete 1"](./screenshots/delete-1.png)
+!["delete 2"](./screenshots/delete-2.png)
 
 ## Assumptions
 During the development of ToDo, I intentionally chose to use as few external libraries as possible.
