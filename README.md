@@ -36,7 +36,7 @@ Remove tasks permanently.
 ## Assumptions
 During the development of ToDo, I intentionally chose to use as few external libraries as possible.
 
-I chose SCSS (Sass) over traditional CSS for TaskMaster's styling due to its numerous benefits:
+I chose SCSS (Sass) over traditional CSS for styling due to its numerous benefits:
 
 1. Modularity: SCSS enables modular, reusable code through variables, mixins, and partials, making maintenance easier.
 2. Nesting: SCSS's nesting feature simplifies CSS selectors, reducing code duplication and improving readability.
@@ -48,6 +48,6 @@ Using SCSS enhanced my productivity, code organization, and overall styling effi
 
 I deliberately chose to forego modern technologies like Tailwind CSS, Shadcn components, and FramerMotion to showcase my foundational expertise in web development.
 
-Here is a similar todolist project that I made especfically for learning Drag/Drop API:
+Here is a similar todo list project that I made especially for learning Drag/Drop API:
 https://note-flow-beta.vercel.app/
 http://github.com/noteflow
