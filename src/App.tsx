@@ -4,9 +4,11 @@ import { Options } from "./utils/constants";
 import Header from "./components/Header/Header";
 import SideNav from "./components/SideNav/SideNav";
 import useWindowsDimensions from "./hooks/useWindowDimensions";
+import TasksContainer from "./components/TaskContainer/TasksContainer";
+import { Task } from "./types/types";
 
 function App() {
-  const [tasks, setTasks] = useState(null);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [option, setOption] = useState(Options.All);
   const [showNav, setShowNav] = useState(false);
@@ -28,6 +30,8 @@ function App() {
   };
 
   const addTask = () => {};
+  const handleDelete = () => {};
+  const handleStatus = () => {};
 
   const handleNav = (event: React.ChangeEvent<HTMLInputElement>) => {
     setShowNav(event.target.checked);
@@ -48,6 +52,13 @@ function App() {
           option={option}
           showNav={showNav}
           width={width}
+        />
+        <TasksContainer
+          tasks={tasks}
+          setTasks={setTasks}
+          handleDelete={handleDelete}
+          option={option}
+          handleStatus={handleStatus}
         />
       </div>
     </div>
