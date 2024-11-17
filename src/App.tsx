@@ -15,14 +15,6 @@ function App() {
   const [showNav, setShowNav] = useState(false);
   const { width } = useWindowsDimensions();
 
-  useEffect(() => {
-    if (width < 901) {
-      setShowNav(false);
-    } else {
-      setShowNav(true);
-    }
-  }, [width]);
-
   // Function to sort tasks according to option choosen (All tasks, High , Medium, Low, No priority)
   const changeOption = (option: number) => {
     setOption(option);
@@ -86,6 +78,31 @@ function App() {
   const handleNav = (event: React.ChangeEvent<HTMLInputElement>) => {
     setShowNav(event.target.checked);
   };
+
+  // Handling media query for sidenav
+  useEffect(() => {
+    if (width < 901) {
+      setShowNav(false);
+    } else {
+      setShowNav(true);
+    }
+  }, [width]);
+
+  // Saving to local storage
+  useEffect(() => {
+    if (tasks.length > 0) {
+      localStorage.setItem("todo_tasks", JSON.stringify(tasks));
+    }
+  }, [tasks]);
+
+  // Loading form local storage
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("todo_tasks");
+    if (storedTasks && tasks.length <= 0) {
+      setTasks(JSON.parse(storedTasks));
+    }
+  });
+
   return (
     <div className="container">
       <Header
