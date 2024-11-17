@@ -23,6 +23,7 @@ function App() {
     }
   }, [width]);
 
+  // Function to sort tasks according to option choosen (All tasks, High , Medium, Low, No priority)
   const changeOption = (option: number) => {
     setOption(option);
     if (width < 901) {
@@ -30,6 +31,7 @@ function App() {
     }
   };
 
+  // Function to add tasks
   const addTask = (event: React.FormEvent) => {
     event.preventDefault();
     if (!tasks) {
@@ -54,9 +56,33 @@ function App() {
     setTasks(arr);
     setInputValue("");
   };
-  const handleDelete = () => {};
-  const handleStatus = () => {};
 
+  // Function to delete task
+  const handleDelete = (id: string) => {
+    const arr = tasks.filter((task) => {
+      return id !== task.id;
+    });
+    setTasks(arr);
+  };
+
+  // Function to update status of task
+  const handleStatus = (
+    changeEvent: React.ChangeEvent<HTMLInputElement>,
+    id: string,
+  ) => {
+    const arr = [...tasks];
+    const task = arr.find((element) => {
+      return id === element.id;
+    });
+    if (task) {
+      task.status = changeEvent.target.checked
+        ? Status.Completed
+        : Status.Active;
+    }
+    setTasks(arr);
+  };
+
+  // Function to open SideNav on mobile devices
   const handleNav = (event: React.ChangeEvent<HTMLInputElement>) => {
     setShowNav(event.target.checked);
   };
